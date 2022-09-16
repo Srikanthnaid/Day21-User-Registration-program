@@ -22,11 +22,28 @@ public class UserRegistrationProblem {
 		System.out.println("First name pattern matching :- " + matcher.matches());
 	}
 
+	/*** UC-2 :- As a User need to enter a valid Last Name. ***/
+	public static void lastNameValidation() {
+		System.out.print("\nEnter last Name :- ");
+		String last_name = input.nextLine();
+
+		String lastNameRegex = "^[A-Z][A-Z a-z]{3,}$"; // first character is Upper case an remaining all either Upper or
+														// Lower
+
+		Pattern pattern = Pattern.compile(lastNameRegex);
+
+		Matcher matcher = pattern.matcher(last_name);
+
+		System.out.println("Last name pattern matching :- " + matcher.matches());
+	}
+
 	/**** Main Method ****/
 	public static void main(String[] args) {
 		/*** Displayed Welcome Message ***/
 		System.out.println("---------------WELCOME TO USER REGISTRATION PROBLEM---------------\n");
 
 		firstNameValidation();
+
+		lastNameValidation();
 	}
 }
