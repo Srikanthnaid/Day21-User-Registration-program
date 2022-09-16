@@ -61,19 +61,18 @@ public class UserRegistrationProblem {
 		System.out.println("Mobile number pattern matching :- " + matcher.matches());
 	}
 	
-	/*** UC-5:- As a User need to follow pre-defined Password rules. RULE-1:- minimum 8 Characters. ***/
+	/*** UC-6:- As a User need to follow pre-defined Password rules. Rule-2:- Should have at least 1 Upper Case. ***/
 	public static void passwordValidation() {
 		System.out.println("\nEnter a password with 8 minimum characters :- ");
 		String password = input.nextLine();
 		
-		String passwordRegex = "^[A-Za-z0-9]{8,}$";      //RULE:-1 :- minimum 8 characters.
+		String passwordRegex = "^(?=.*[A-Z])[A-Za-z0-9].{8,}$";      //Rule-2:- Should have at least 1 Upper Case.
 		
 		Pattern pattern = Pattern.compile(passwordRegex);
 		
 		Matcher matcher = pattern.matcher(password);
 		
 		System.out.println("Password Validation :- " + matcher.matches());
-	
 	} 
 	
 	/**** Main Method ****/
