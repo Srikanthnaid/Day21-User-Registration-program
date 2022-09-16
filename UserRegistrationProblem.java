@@ -61,12 +61,12 @@ public class UserRegistrationProblem {
 		System.out.println("Mobile number pattern matching :- " + matcher.matches());
 	}
 	
-	/*** UC-6:- As a User need to follow pre-defined Password rules. Rule-2:- Should have at least 1 Upper Case. ***/
+	/*** UC-7:- As a User need to follow pre-defined Password rules. Rule-3:- Should have at least 1 numeric number in the password. ***/
 	public static void passwordValidation() {
 		System.out.println("\nEnter a password with 8 minimum characters :- ");
 		String password = input.nextLine();
 		
-		String passwordRegex = "^(?=.*[A-Z])[A-Za-z0-9].{8,}$";      //Rule-2:- Should have at least 1 Upper Case.
+		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$";      //Rule-3:- Should have at least 1 numeric number in the password.
 		
 		Pattern pattern = Pattern.compile(passwordRegex);
 		
