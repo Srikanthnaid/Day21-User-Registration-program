@@ -11,39 +11,52 @@ public class UserRegistrationProblem {
 	public static void firstNameValidation() {
 		System.out.print("Enter First Name :- ");
 		String first_name = input.nextLine();
-
-		String firstNameRegex = "^[A-Z][A-Z a-z]{3,}$"; // first character is Upper case an remaining all either Upper
-														// or Lower
-
+		
+		String firstNameRegex = "^[A-Z][A-Z a-z]{3,}$";           //first character is Upper case an remaining all either Upper or Lower 
+		
 		Pattern pattern = Pattern.compile(firstNameRegex);
-
+		
 		Matcher matcher = pattern.matcher(first_name);
-
+		
 		System.out.println("First name pattern matching :- " + matcher.matches());
 	}
-
+	
 	/*** UC-2 :- As a User need to enter a valid Last Name. ***/
 	public static void lastNameValidation() {
 		System.out.print("\nEnter last Name :- ");
 		String last_name = input.nextLine();
-
-		String lastNameRegex = "^[A-Z][A-Z a-z]{3,}$"; // first character is Upper case an remaining all either Upper or
-														// Lower
-
+		
+		String lastNameRegex = "^[A-Z][A-Z a-z]{3,}$";           //first character is Upper case an remaining all either Upper or Lower 
+		
 		Pattern pattern = Pattern.compile(lastNameRegex);
-
+		
 		Matcher matcher = pattern.matcher(last_name);
-
+		
 		System.out.println("Last name pattern matching :- " + matcher.matches());
 	}
-
+	
+	/*** UC-3:- As a User need to enter a valid email. ***/
+	public static void emailValidation() {
+		System.out.print("\nEnter E-Mail :- ");
+		String email = input.nextLine();
+		
+		String emailRegex = "^[\\w+-]+(\\.[\\w+-]+)*@[\\w]+(\\.[\\w]+)?(?=(\\.[A-Za-z_]{2,3}$|\\.[a-zA-Z]{2,3}$)).*$";       //email validation using regular expressions.
+	
+		Pattern pattern = Pattern.compile(emailRegex);
+		Matcher matcher = pattern.matcher(email);
+		
+		System.out.println("E-Mail pattern matching :- " + matcher.matches());
+	}
+	
 	/**** Main Method ****/
 	public static void main(String[] args) {
 		/*** Displayed Welcome Message ***/
 		System.out.println("---------------WELCOME TO USER REGISTRATION PROBLEM---------------\n");
-
+	
 		firstNameValidation();
 
 		lastNameValidation();
+		
+		emailValidation();
 	}
 }
