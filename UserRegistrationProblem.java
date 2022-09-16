@@ -48,6 +48,20 @@ public class UserRegistrationProblem {
 		System.out.println("E-Mail pattern matching :- " + matcher.matches());
 	}
 	
+	/*** UC-4:- As a User need to follow pre defined Mobile Format. ***/
+	public static void mobileNumberValidation() {
+		System.out.print("\nEnter mobile number with country code :- ");
+		String mobileNum = input.nextLine();
+		
+		String mobileNumRegex = "^[0-9]{2}(\\s){1}[0-9]{10}$";     //example:- 91 XXXXXXXXXX  mobile number format validation.
+	
+		Pattern pattern = Pattern.compile(mobileNumRegex);
+		Matcher matcher = pattern.matcher(mobileNum);
+		
+		System.out.println("Mobile number pattern matching :- " + matcher.matches());
+	}
+	
+	
 	/**** Main Method ****/
 	public static void main(String[] args) {
 		/*** Displayed Welcome Message ***/
@@ -58,5 +72,7 @@ public class UserRegistrationProblem {
 		lastNameValidation();
 		
 		emailValidation();
+		
+		mobileNumberValidation();
 	}
 }
