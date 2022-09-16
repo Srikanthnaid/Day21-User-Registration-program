@@ -9,7 +9,7 @@ public class UserRegistrationProblem {
 
 	/*** UC-1 :- As a User need to enter a valid First Name. ***/
 	public static void firstNameValidation() {
-		System.out.print("Enter First Name :- ");
+		System.out.print("\nEnter First Name :- ");
 		String first_name = input.nextLine();
 		
 		String firstNameRegex = "^[A-Z][A-Z a-z]{3,}$";           //first character is Upper case an remaining all either Upper or Lower 
@@ -61,12 +61,12 @@ public class UserRegistrationProblem {
 		System.out.println("Mobile number pattern matching :- " + matcher.matches());
 	}
 	
-	/*** UC-7:- As a User need to follow pre-defined Password rules. Rule-3:- Should have at least 1 numeric number in the password. ***/
+	/*** UC-8:- As a User need to follow pre-defined Password rules. Rule-4:- Has exactly 1 Special Character. ***/
 	public static void passwordValidation() {
-		System.out.println("\nEnter a password with 8 minimum characters :- ");
+		System.out.print("\nEnter a password with 8 minimum characters :- ");
 		String password = input.nextLine();
 		
-		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$";      //Rule-3:- Should have at least 1 numeric number in the password.
+		String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.*[a-z]).{8,}$";      //Rule-4:-  Has exactly 1 Special Character.
 		
 		Pattern pattern = Pattern.compile(passwordRegex);
 		
@@ -78,7 +78,7 @@ public class UserRegistrationProblem {
 	/**** Main Method ****/
 	public static void main(String[] args) {
 		/*** Displayed Welcome Message ***/
-		System.out.println("---------------WELCOME TO USER REGISTRATION PROBLEM---------------\n");
+		System.out.println("---------------WELCOME TO USER REGISTRATION PROBLEM---------------");
 	
 		firstNameValidation();
 
